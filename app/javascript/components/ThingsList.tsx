@@ -1,8 +1,9 @@
 import * as React from "react";
 import Axios from "axios";
 import { useEffect, useState } from "react";
+import Thing from "../components/Thing"
 
-const THINGS_URL = "some-url";
+const THINGS_URL = "http://localhost:3000/api/v1/things";
 
 export interface Thing {
   name: string;
@@ -10,7 +11,7 @@ export interface Thing {
 }
 
 const ThingsList = (): JSX.Element => {
-  const [things, setThings] = useState(Array<Thing>());
+  const [things, setThings] = useState([]);
 
   useEffect(() => {
     Axios.get(THINGS_URL)
@@ -24,9 +25,7 @@ const ThingsList = (): JSX.Element => {
 
   return (
     <div>
-      {things.map((thing: Thing) => (
-        <div key={thing.name.toLowerCase()}>{thing.name}</div>
-      ))}
+      { things.map((thing: Thing, idx: number) => (<Thing key={idx} {...thing} />)) }
     </div>
   );
 };

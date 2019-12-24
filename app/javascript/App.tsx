@@ -1,3 +1,8 @@
 import * as React from "react";
-const App = (): JSX.Element => <div>Welcome to our React single page application</div>;
+import ThingsList from "./components/ThingsList";
+const App = (): JSX.Element => (
+  <div>
+    <ThingsList />
+  </div>
+);
 export default App;
