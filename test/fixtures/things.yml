@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+Samarreta:
+  name: Samarreta
+  price: 19.99
+
+Octaveta:
+  name: Octaveta
+  price: 0.00
