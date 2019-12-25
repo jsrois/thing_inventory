@@ -2,13 +2,44 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+.navigationBar {
+  display: flex;
+  background: #312e2e;
+  color: white;
+
+  &__link {
+    height: auto;
+    color: inherit;
+    text-decoration: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+
+    &--active#{&}{
+        background: #e64b38;
+    }
+
+  }
+  
+}
+
+.thingsList {
+    display: flex;
+}
 
 .thing {
-    background: #d3d17f;
-    border: solid black 1px;
-    border-radius: 3px;
-    
-    &:hover {
-        background: #aab46dbb;
-    }
+  background: #d3d17f;
+  border: solid black 1px;
+  border-radius: 3px;
+
+  &:hover {
+    background: #aab46dbb;
+  }
 }

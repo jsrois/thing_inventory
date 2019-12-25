@@ -24,7 +24,7 @@ const ThingsList = (): JSX.Element => {
   }, []);
 
   return (
-    <div>
+    <div className="thingsList">
       { things.map((thing: Thing, idx: number) => (<Thing key={idx} {...thing} />)) }
     </div>
   );
