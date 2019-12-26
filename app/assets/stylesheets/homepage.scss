@@ -15,18 +15,21 @@ body {
     sans-serif;
 }
 
-.navigationBar {
+.sideMenu {
+  padding-top: 40px;
+  width: 84px;
   position: fixed;
   display: flex;
   flex-direction: column;
-  background: orange;
+  background: rgb(230, 75, 56);
   color: white;
   height: 100vh;
   top: 0px;
   left: 0px;
   -webkit-box-shadow: 4px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 4px 2px 5px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 4px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 4px;
+  z-index: 1000;
 
   &__link {
     height: auto;
@@ -36,12 +39,19 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    margin-bottom: 10px;
 
     &--active#{&} {
       background: $red;
     }
+
+    .icon {
+      height: 34px;
+      width: 34px;
+    }
   }
 }
+
 .inventoryPanel {
   padding: 0 0 0 140px;
 
@@ -57,6 +67,38 @@ body {
     z-index: 1000;
     background: white;
   }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+
+  .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    .loader {
+      left: 50%;
+      margin-left: 2em;
+      border: solid 0.8em $red;
+      border-left: 0.8em solid $orange;
+      border-radius: 3em;
+      font-size: 10px;
+      top: 60%;
+      position: absolute;
+      width: 3em;
+      height: 3em;
+      opacity: 0.4;
+      animation: spin 1.2s infinite linear;
+    }
+  }
 }
 
 .thingsList {
@@ -66,7 +108,7 @@ body {
 }
 
 .thing {
-  background: #dadde3;
+  background: #dadde3 url(image_placeholder);
   border: solid #dadde3 1px;
   border-radius: 3px;
   width: 264px;

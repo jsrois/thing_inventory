@@ -7,12 +7,12 @@ const NEW_THING_URL = "http://localhost:3000/new";
 
 const ThingForm = (): JSX.Element => {
   const [name, setName] = useState("");
-  const [block, setBlock] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setBlock(true);
+    setLoading(true);
     Axios.post(NEW_THING_URL, { name, price: 0.0 })
       .then(response => {
         if (response.status === 200) {
@@ -21,7 +21,7 @@ const ThingForm = (): JSX.Element => {
           console.log("Failed to create the thing");
         }
       })
-      .finally(() => setBlock(false));
+      .finally(() => setLoading(false));
   };
 
   return (
@@ -36,7 +36,7 @@ const ThingForm = (): JSX.Element => {
             value={name}
             onChange={e => setName(e.target.value)}
           />
-          <input value="Add" type="submit" disabled={block}/>
+          <input value="Add" type="submit" disabled={loading}/>
         </form>
       )}
     </>

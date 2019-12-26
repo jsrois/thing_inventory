@@ -12,25 +12,36 @@ export interface Thing {
 
 const ThingsList = (): JSX.Element => {
   const [things, setThings] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     Axios.get(THINGS_URL)
       .then(response => {
         setThings(response.data.things);
       })
       .catch(() => {
         console.log("Failed to fetch some things.");
+      })
+      .finally(() => {
+        setLoading(false);
       });
   }, []);
 
   return (
     <div className="inventoryPanel">
       <div className="inventoryHeader">All things</div>
-      <div className="thingsList">
-        {things.map((thing: Thing, idx: number) => (
-          <Thing key={idx} {...thing} />
-        ))}
-      </div>
+      {loading ? (
+        <div className="loading"> 
+          <div className="loader"/>
+        </div>
+      ) : (
+        <div className="thingsList">
+          {things.map((thing: Thing, idx: number) => (
+            <Thing key={idx} {...thing} />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
