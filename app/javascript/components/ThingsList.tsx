@@ -2,6 +2,7 @@ import * as React from "react";
 import Axios from "axios";
 import { useEffect, useState } from "react";
 import Thing from "../components/Thing";
+import LoaderSpinner from "../components/LoaderSpinner"
 
 const THINGS_URL = "http://localhost:3000/api/v1/things";
 
@@ -32,9 +33,7 @@ const ThingsList = (): JSX.Element => {
     <div className="inventoryPanel">
       <div className="inventoryHeader">All things</div>
       {loading ? (
-        <div className="loading"> 
-          <div className="loader"/>
-        </div>
+        <LoaderSpinner />
       ) : (
         <div className="thingsList">
           {things.map((thing: Thing, idx: number) => (
