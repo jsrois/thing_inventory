@@ -31,10 +31,10 @@ const App = (): JSX.Element => (
         exact
         activeClassName="navigationBar__link--active"
         className="navigationBar__link"
-        id="login"
-        to="/login"
+        id="logout"
+        to="/logout"
       >
-        Sign In
+        Sign Out
       </NavLink>
     </div>
     <Switch>

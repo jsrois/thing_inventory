@@ -1,7 +1,7 @@
 import * as React from "react";
 import Axios from "axios";
 import { useEffect, useState } from "react";
-import Thing from "../components/Thing"
+import Thing from "../components/Thing";
 
 const THINGS_URL = "http://localhost:3000/api/v1/things";
 
@@ -24,8 +24,13 @@ const ThingsList = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="thingsList">
-      { things.map((thing: Thing, idx: number) => (<Thing key={idx} {...thing} />)) }
+    <div className="inventoryPanel">
+      <div className="inventoryHeader">All things</div>
+      <div className="thingsList">
+        {things.map((thing: Thing, idx: number) => (
+          <Thing key={idx} {...thing} />
+        ))}
+      </div>
     </div>
   );
 };
