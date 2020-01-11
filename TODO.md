@@ -8,4 +8,4 @@
 - [ ] Deploy with Heroku
 - [ ] Sales functionality
 - [ ] Add location for sales
-
+- [ ] I18n

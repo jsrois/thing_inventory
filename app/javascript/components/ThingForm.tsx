@@ -29,15 +29,22 @@ const ThingForm = (): JSX.Element => {
       {submitted ? (
         <Redirect to="/" />
       ) : (
-        <form onSubmit={handleSubmit}>
-          <label htmlFor="Name">Name</label>
-          <input
-            id="Name"
-            value={name}
-            onChange={e => setName(e.target.value)}
-          />
-          <input value="Add" type="submit" disabled={loading}/>
-        </form>
+        <div className="panel">
+          <div className="panelHeader">Create new</div>
+          <form className="form" onSubmit={handleSubmit}>
+            <label htmlFor="Name">Name</label>
+            <input
+              id="Name"
+              value={name}
+              onChange={e => setName(e.target.value)}
+            />
+            <label htmlFor="Price">Price</label>
+            <input id="price" />
+            <label htmlFor="Quantity">Quantity</label>
+            <input id="quantity" type="number"/>
+            <input value="Add" type="submit" disabled={loading} />
+          </form>
+        </div>
       )}
     </>
   );

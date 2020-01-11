@@ -30,8 +30,8 @@ const ThingsList = (): JSX.Element => {
   }, []);
 
   return (
-    <div className="inventoryPanel">
-      <div className="inventoryHeader">All things</div>
+    <div className="panel">
+      <div className="panelHeader">All things</div>
       {loading ? (
         <LoaderSpinner />
       ) : (
